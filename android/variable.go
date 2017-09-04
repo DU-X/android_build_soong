@@ -128,7 +128,7 @@ type variableProperties struct {
 		}
 
 		// include DU variables
-		*android.Product_variables
+		Dirty android.Product_variables
 	} `android:"arch_variant"`
 }
 
@@ -294,7 +294,7 @@ type productVariables struct {
 	TargetFSConfigGen []string `json:",omitempty"`
 
 	// include DU variables
-	*android.ProductVariables
+	Dirty android.ProductVariables
 }
 
 func boolPtr(v bool) *bool {
