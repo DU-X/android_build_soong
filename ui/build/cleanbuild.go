@@ -75,6 +75,11 @@ func installClean(ctx Context, config Config, what int) {
 			hostCrossOut("nativetest*"))
 	}
 
+	outDirPath := config.OutDir()
+	outDir := func(path string) string {
+		return filepath.Join(outDirPath, path)
+	}
+
 	hostOutPath := config.HostOut()
 	hostOut := func(path string) string {
 		return filepath.Join(hostOutPath, path)
@@ -131,7 +136,8 @@ func installClean(ctx Context, config Config, what int) {
 		productOut("installer"),
 		productOut("odm"),
 		productOut("sysloader"),
-		productOut("testcases"))
+		productOut("testcases"),
+		outDir("soong/.bootstrap"))
 }
 
 // Since products and build variants (unfortunately) shared the same
